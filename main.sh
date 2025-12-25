@@ -5,7 +5,7 @@ set -eu
 declare -r motomagx_tarball='/tmp/motomagx.tar.gz'
 declare -r motomagx_directory='/tmp/motomagx-SDK-toolchain-master'
 
-declare -r sysroot_directory='/tmp/arm-unknown-linux-gnueabi'
+declare -r sysroot_directory='/tmp/arm-motomagx-linux-gnueabi'
 declare -r tarball_filename="${sysroot_directory}.tar.xz"
 
 if ! [ -f "${motomagx_tarball}" ]; then
