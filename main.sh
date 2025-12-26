@@ -40,8 +40,11 @@ mv \
 rm \
 	--force \
 	--recursive \
-	"${sysroot_directory}/lib/lib"{supc++,c++,gcc}* \
+	"${sysroot_directory}/lib/lib"*'_p.a' \
+	"${sysroot_directory}/lib/lib"{affix,affix_,bz2,enca,expat,iberty,jpeg,ncurses,openobex,png,proc,pam,ssmgr,z}* \
+	"${sysroot_directory}/lib/lib"{supc++,stdc++,gcc}* \
 	"${sysroot_directory}/include/"{c++,faad,x264} \
+	"${sysroot_directory}/include/"{bzlib,elcstd,enca,expat_external,expat,jconfig,jerror,jmorecfg,jpeglib,mad,pngconf,png,x264,xvid,zconf,zlib}'.h' \
 	"${sysroot_directory}/lib/ldscripts"
 
 echo "- Creating tarball at ${tarball_filename}"
