@@ -47,6 +47,14 @@ rm \
 	"${sysroot_directory}/include/"{bzlib,elcstd,enca,expat_external,expat,jconfig,jerror,jmorecfg,jpeglib,mad,pngconf,png,x264,xvid,zconf,zlib}'.h' \
 	"${sysroot_directory}/lib/ldscripts"
 
+unlink "${sysroot_directory}/include/asm"
+mv "${sysroot_directory}/include/asm-arm" "${sysroot_directory}/include/asm"
+
+sed \
+	--in-place \
+	's/asm-arm/asm/g' \
+	"${sysroot_directory}/include//linux/mtd/xip.h"
+
 echo "- Creating tarball at ${tarball_filename}"
 
 tar --directory="$(dirname "${sysroot_directory}")" --create --file=- "$(basename "${sysroot_directory}")" | xz --compress -9 > "${tarball_filename}"
